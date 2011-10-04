@@ -1,3 +1,9 @@
+# thumbgen:  main program usage:  thumbgen <sourcedir> <targetdir>
+# 	example:  thumbgen /home/www/html/SavtiraCatalogAssetStore/Vendor10004/images/full/ \
+# 	SavtiraCatalogAssetStore/Vendor10004/images/thumb
+# lib: imagelib, resize($original_image_filename,$thumbnail_image_filename);
+#		 usage($error);
+
 yum -y install ImageMagick ImageMagick-perl
 http://www.imagemagick.org/Usage/basics/
 http://www.chemie.fu-berlin.de/chemnet/use/suppl/imagemagick/www/convert.html
