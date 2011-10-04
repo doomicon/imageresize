@@ -1,0 +1,5 @@
+yum -y install ImageMagick ImageMagick-perl
+http://www.imagemagick.org/Usage/basics/
+mogrify, convert
+
+
