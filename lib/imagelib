@@ -4,7 +4,6 @@ my ($image, $x);
 $image = Image::Magick->new;
 
 sub resize {
-printf "getting here\n";
 	$infile = $_[0];
 	$outfile = $_[1];
 	my($image);
@@ -26,4 +25,19 @@ printf "getting here\n";
 #	$image->Write($out);
 
 return 0;
+} print;
+
+sub usage {
+	$err = $_[0];
+	if ( $err =~ /source/ ) {
+		printf "Error:  Source Directory doesn't exist\n";
+		printf "Usage:  thumbgen <source_directory> <target_directory>\n\n";
+	} elsif ( $err =~ /target/ ) {
+		printf "Error:  Target Directory doesn't exist\n";
+		printf "Usage:  thumbgen <source_directory> <target_directory>\n\n";
+	} elsif ( $err =~ /basic/ ) {
+		printf "Usage:  thumbgen <source_directory> <target_directory>\n\n";
+	}
+
+return 1;
 } print;

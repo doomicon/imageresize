@@ -13,7 +13,7 @@
 #
 #estore.savtira.net width=70
 #
-# PerlMagick Methods
+# PerlMagick Method(s)
 #my($image, $x);
 #
 #$image = Image::Magick->new;
@@ -32,8 +32,22 @@
 use Image::Magick;
 require './lib/imagelib';
 
-my $FullDir = '/home/rowens/repos/imageresize/html/images/full';
-my $ThumbDir = '/home/rowens/repos/imageresize/html/images/thumb';
+#my $FullDir = '/home/rowens/repos/imageresize/html/images/full';
+#my $ThumbDir = '/home/rowens/repos/imageresize/html/images/thumb';
+
+my $FullDir = $ARGV[0];
+my $ThumbDir = $ARGV[1];
+
+if (( $FullDir eq '' ) || ( $ThumbDir eq '' )) {
+        usage(basic);
+        exit 1;
+} elsif ( ! -e $FullDir ) {
+	usage(source);
+	exit 1;
+} elsif ( ! -e $ThumbDir ) {
+	usage(target);
+	exit 1;
+}
 
 opendir(D, "$FullDir") || die "Can't opedir $FullDir: $!\n";
 my @tmpfull = readdir(D);
@@ -52,5 +66,4 @@ foreach $tmpfile (@tmpfull) {
 #
 foreach $file (@full) {
 	resize("$FullDir/$file","$ThumbDir/$file"); 
-#system("./rsze_tmp.pl", "$FullDir/$file","$ThumbDir/$file");
 }
