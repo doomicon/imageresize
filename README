@@ -1,5 +1,18 @@
 yum -y install ImageMagick ImageMagick-perl
 http://www.imagemagick.org/Usage/basics/
+http://www.chemie.fu-berlin.de/chemnet/use/suppl/imagemagick/www/convert.html
 mogrify, convert
+
+Read:
+$x = $image->Read('Blood_for_Blood_God_by_NachoMon.jpg');
+
+Resize:	
+$x = $image->Resize(geometry=>'70x');
+scale image to desired size. Specify blur > 1 for blurry or < 1 for sharp
+
+geometry=>geometry, width=>integer, height=>integer, filter=>{Point, Box, Triangle, Hermite, Hanning, Hamming, Blackman, Gaussian, Quadratic, Cubic, Catrom, Mitchell, Lanczos, Bessel, Sinc}, support=>double, blur=>double	
+
+Write:
+$x = $image->Write('Blood_thumb.jpg');
 
 

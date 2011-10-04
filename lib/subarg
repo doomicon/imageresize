@@ -1,0 +1,6 @@
+sub args {
+	my ($in, $out) = @_;
+	printf "$in\n";
+	print "$out\n";
+} return 0;
+print;

@@ -1,0 +1,29 @@
+#use Image::Magick
+
+my ($image, $x);
+$image = Image::Magick->new;
+
+sub resize {
+printf "getting here\n";
+	$infile = $_[0];
+	$outfile = $_[1];
+	my($image);
+
+	$image = Image::Magick->new;
+
+	$image->Read($infile);
+
+	$image->Resize(geometry=>'70x');
+
+	$image->Write($outfile);
+
+	
+#	my ($in, $out) = @_;
+#	$image->Read($in);
+#
+#	$image->Resize(geometry=>'70x');
+#
+#	$image->Write($out);
+
+return 0;
+} print;
