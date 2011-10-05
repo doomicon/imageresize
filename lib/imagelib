@@ -16,14 +16,6 @@ sub resize {
 
 	$image->Write($outfile);
 
-	
-#	my ($in, $out) = @_;
-#	$image->Read($in);
-#
-#	$image->Resize(geometry=>'70x');
-#
-#	$image->Write($out);
-
 return 0;
 } print;
 
