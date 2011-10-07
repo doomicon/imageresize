@@ -37,6 +37,8 @@ require './lib/imagelib';
 
 my $FullDir = $ARGV[0];
 my $ThumbDir = $ARGV[1];
+my $size = $ARGV[2];
+my $x = x;
 
 if (( $FullDir eq '' ) || ( $ThumbDir eq '' )) {
         usage(basic);
@@ -47,8 +49,13 @@ if (( $FullDir eq '' ) || ( $ThumbDir eq '' )) {
 } elsif ( ! -e $ThumbDir ) {
 	usage(target);
 	exit 1;
+} 
+if ( $size eq '' ) {
+	$Resize = '70x';
+} else {
+	$Resize = $size . $x;
 }
-
+print "$Resize\n";
 opendir(D, "$FullDir") || die "Can't opedir $FullDir: $!\n";
 my @tmpfull = readdir(D);
 closedir(D);
@@ -65,5 +72,5 @@ foreach $tmpfile (@tmpfull) {
 }
 #
 foreach $file (@full) {
-	resize("$FullDir/$file","$ThumbDir/$file"); 
+	resize("$FullDir/$file","$ThumbDir/$file","$Resize"); 
 }
