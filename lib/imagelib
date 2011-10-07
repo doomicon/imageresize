@@ -15,15 +15,10 @@ sub resize {
 
 	$image->Resize(geometry=>$resize);
 
-	$image->Write($outfile);
+	printf "Resizing image:   $infile\n";
 
+	$image->Write($outfile);
 	
-#	my ($in, $out) = @_;
-#	$image->Read($in);
-#
-#	$image->Resize(geometry=>'70x');
-#
-#	$image->Write($out);
 
 return 0;
 } print;

@@ -55,9 +55,16 @@ if ( $size eq '' ) {
 } else {
 	$Resize = $size . $x;
 }
-print "$Resize\n";
+
 opendir(D, "$FullDir") || die "Can't opedir $FullDir: $!\n";
-my @tmpfull = readdir(D);
+while ( my $file  = readdir(D) ) {
+# remove "." and ".." directories
+	next if ( $file =~ m/^\./ );
+# only files
+	next if ( -d "$FullDir/$file" );
+# all images into an array
+	push ( @tmpfull, "$file" );
+}
 closedir(D);
 
 #print "@full";
@@ -65,9 +72,9 @@ closedir(D);
 
 
 foreach $tmpfile (@tmpfull) {
-	printf "PRE:  $ThumbDir/$tmpfile\n";
+#	printf "PRE:  $ThumbDir/$tmpfile\n";
 	next if ( -e "$ThumbDir/$tmpfile");
-	printf "PST:  $ThumbDir/$tmpfile\n";
+#	printf "PST:  $ThumbDir/$tmpfile\n";
 	push(@full, "$tmpfile");
 }
 #
