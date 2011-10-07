@@ -17,12 +17,8 @@ sub resize {
 
 	printf "Resizing image:   $infile\n";
 
-<<<<<<< HEAD
-=======
 	$image->Write($outfile);
-	
 
->>>>>>> 7768a0866cdd30883b83f0852757e93fd8f2bbbc
 return 0;
 } print;
 
