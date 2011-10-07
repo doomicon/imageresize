@@ -6,13 +6,14 @@ $image = Image::Magick->new;
 sub resize {
 	$infile = $_[0];
 	$outfile = $_[1];
+	$resize = $_[2];
 	my($image);
 
 	$image = Image::Magick->new;
 
 	$image->Read($infile);
 
-	$image->Resize(geometry=>'70x');
+	$image->Resize(geometry=>$resize);
 
 	$image->Write($outfile);
 
@@ -31,12 +32,25 @@ sub usage {
 	$err = $_[0];
 	if ( $err =~ /source/ ) {
 		printf "Error:  Source Directory doesn't exist\n";
-		printf "Usage:  thumbgen <source_directory> <target_directory>\n\n";
+		printf "Usage:  thumbgen <source_directory> <target_directory> [pix width]\n\n";
 	} elsif ( $err =~ /target/ ) {
 		printf "Error:  Target Directory doesn't exist\n";
-		printf "Usage:  thumbgen <source_directory> <target_directory>\n\n";
+		printf "Usage:  thumbgen <source_directory> <target_directory> [pix width]\n\n";
 	} elsif ( $err =~ /basic/ ) {
-		printf "Usage:  thumbgen <source_directory> <target_directory>\n\n";
+		print<<EOF;
+Thumb Generator:  Used to generate thumbnails.  Shrinking width size while
+maintaining scale.
+Usage:  thumbgen <source_directory> <target_directory> [pix width]
+        Example(s):
+        Resize original images to thumbnail size, using default 70px wide: 
+        thumbgen /var/www/html/images/full /var/www/html/images/thumb
+
+	Resize original images to thumbnail size, specifying 100px width:
+        thumbgen /var/www/html/images/full /var/www/html/images/thumb 100
+
+	NOTE!  Program maintains the filename, hence output directory.
+
+EOF
 	}
 
 return 1;
