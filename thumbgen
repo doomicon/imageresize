@@ -11,7 +11,7 @@
 #Full:/var/www/html/images/full
 #Thumb:/var/www/html/images/thumb
 #
-#estore.savtira.net width=70
+#width=70
 #
 # PerlMagick Method(s)
 #my($image, $x);
