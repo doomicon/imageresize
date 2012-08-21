@@ -1,6 +1,6 @@
 # thumbgen:  main program usage:  thumbgen <sourcedir> <targetdir>
-# 	example:  thumbgen /home/www/html/SavtiraCatalogAssetStore/Vendor10004/images/full/ \
-# 	SavtiraCatalogAssetStore/Vendor10004/images/thumb
+# 	example:  thumbgen /home/www/html/XXXXXXXCatalogAssetStore/Vendor10004/images/full/ \
+# 	XXXXXXXCatalogAssetStore/Vendor10004/images/thumb
 # lib: imagelib, resize($original_image_filename,$thumbnail_image_filename);
 #		 usage($error);
 
